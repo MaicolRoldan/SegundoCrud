@@ -68,7 +68,12 @@ const agregarGift = (event) => {
   datos.push(new Gift(id, gift, tipo, tiempo, precio, imagen));
   document.querySelector("#formGift").reset();
   cargarTabla();
+  guardarDatos();
 };
+
+const guardarDatos = (data) =>{
+  data = localStorage.setItem('data', JSON.stringify(datos));
+}
 
 window.borrarGift = (id) => {
   let index = datos.findIndex((item) => item.id == id);
